@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة Pixel - الاستثمار في العملات الرقمية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- تنبيه التعليم -->
+        <div class="education-warning">
+            ⚠️ هذه منصة تعليمية وهمية فقط - لا تستقبل أموال حقيقية
+        </div>
+
+        <!-- صفحة تسجيل الدخول -->
+        <div id="loginSection" class="auth-section active">
+            <div class="auth-container">
+                <div class="logo">
+                    <h1>Pixel</h1>
+                    <p>منصة الاستثمار في العملات الرقمية</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="switchTab('login')">تسجيل دخول</button>
+                    <button class="tab-btn" onclick="switchTab('register')">إنشاء حساب</button>
+                </div>
+
+                <!-- نموذج تسجيل الدخول -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail">البريد الإلكتروني</label>
+                        <input type="email" id="loginEmail" required placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">كلمة المرور</label>
+                        <input type="password" id="loginPassword" required placeholder="أدخل كلمة المرور">
+                    </div>
+                    <button type="submit" class="btn-primary">تسجيل الدخول</button>
+                </form>
+
+                <!-- نموذج إنشاء حساب -->
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="regEmail">البريد الإلكتروني</label>
+                        <input type="email" id="regEmail" required placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">كلمة المرور</label>
+                        <input type="password" id="regPassword" required placeholder="أدخل كلمة المرور">
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword2">تأكيد كلمة المرور</label>
+                        <input type="password" id="regPassword2" required placeholder="أعد إدخال كلمة المرور">
+                    </div>
+                    <button type="submit" class="btn-primary">إنشاء حساب</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- صفحة لوحة التحكم -->
+        <div id="dashboardSection" class="dashboard-section">
+            <!-- رأس الصفحة -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>Pixel</h1>
+                </div>
+                <div class="header-right">
+                    <span id="userEmail"></span>
+                    <button class="btn-logout" onclick="logout()">تسجيل الخروج</button>
+                </div>
+            </header>
+
+            <!-- المحتوى الرئيسي -->
+            <div class="dashboard-content">
+                <!-- قسم المحفظة -->
+                <section class="wallet-section">
+                    <h2>🎉 مرحباً بك في منصة الاستثمار العملات الرقمية</h2>
+                    <div class="wallet-card">
+                        <h3>محفظتك</h3>
+                        <div class="wallet-info">
+                            <div class="wallet-balance">
+                                <p>الرصيد الافتراضي</p>
+                                <h3>$<span id="walletBalance">1000</span></h3>
+                            </div>
+                            <div class="wallet-address">
+                                <p>عنوان المحفظة (وهمي)</p>
+                                <code>1A1z7agoat2YqCS1iNzrx7fCWqqLLscd6z</code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- قسم الاشتراكات -->
+                <section class="subscriptions-section">
+                    <h2>خطط الاستثمار</h2>
+                    <div class="subscriptions-container">
+                        <div class="subscription-card">
+                            <h3>الأساسية</h3>
+                            <p class="price">$20</p>
+                            <ul class="features">
+                                <li>✓ عائد شهري 5%</li>
+                                <li>✓ دعم فني أساسي</li>
+                                <li>✓ تحديثات يومية</li>
+                            </ul>
+                            <button class="btn-subscribe" onclick="subscribe(20)">اختيار هذه الخطة</button>
+                        </div>
+
+                        <div class="subscription-card featured">
+                            <h3>المتقدمة</h3>
+                            <p class="price">$100</p>
+                            <span class="badge">الأكثر اختياراً</span>
+                            <ul class="features">
+                                <li>✓ عائد شهري 12%</li>
+                                <li>✓ دعم فني أولويتي</li>
+                                <li>✓ تحديثات فورية</li>
+                                <li>✓ مستشار مالي</li>
+                            </ul>
+                            <button class="btn-subscribe" onclick="subscribe(100)">اختيار هذه الخطة</button>
+                        </div>
+
+                        <div class="subscription-card">
+                            <h3>احترافية</h3>
+                            <p class="price">$500</p>
+                            <ul class="features">
+                                <li>✓ عائد شهري 18%</li>
+                                <li>✓ دعم فني 24/7</li>
+                                <li>✓ تحليل شامل</li>
+                                <li>✓ استراتيجيات متقدمة</li>
+                                <li>✓ ندوات حصرية</li>
+                            </ul>
+                            <button class="btn-subscribe" onclick="subscribe(500)">اختيار هذه الخطة</button>
+                        </div>
+
+                        <div class="subscription-card">
+                            <h3>الماسية</h3>
+                            <p class="price">$1000</p>
+                            <ul class="features">
+                                <li>✓ عائد شهري 25%</li>
+                                <li>✓ دعم فني VIP</li>
+                                <li>✓ إدارة محفظة شاملة</li>
+                                <li>✓ استشارات شخصية</li>
+                                <li>✓ أولوية في الفرص</li>
+                            </ul>
+                            <button class="btn-subscribe" onclick="subscribe(1000)">اختيار هذه الخطة</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- قسم الاستثمارات الحالية -->
+                <section class="investments-section">
+                    <h2>استثماراتك</h2>
+                    <div id="investmentsList" class="investments-list">
+                        <p class="empty-state">لا توجد استثمارات حالياً</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
